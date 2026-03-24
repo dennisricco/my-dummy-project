@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import {
   Activity, Zap, Shield, Cpu, Clock, Server,
   MessageSquarePlus, Download, Settings, User, Wifi, WifiOff,
@@ -22,14 +22,14 @@ const QUICK_ACTIONS = [
   { icon: Settings,          label: 'Settings',  testId: 'action-settings' },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.06 } },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden:  { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0 },
 };
 
 export default function AIProfile() {
@@ -61,7 +61,7 @@ export default function AIProfile() {
           className="flex flex-col items-center gap-4"
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         >
           {/* Avatar ring */}
           <div className="relative">
